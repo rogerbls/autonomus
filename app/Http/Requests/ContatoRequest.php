@@ -11,8 +11,7 @@ class ContatoRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize()  {
         return true;
     }
 
@@ -22,26 +21,26 @@ class ContatoRequest extends FormRequest
      * @return array
      */
     public function rules()    {
-        switch($this-:method()){
-            case: "POST":
+        switch($this->method()){
+            case 'POST':
                 return [
                     'saudacao' => 'required|max:5',
                     'nome'=>'required|max:100',
                     'telefone'=> 'required|max:15',
                     'email'=>'email|max:200|unique:contatos',
-                    'data_nascimento'=>'date_format:"d/m/y"',
-                    'avatar'=>'nullable|sometimes|image|mimes:jpg, jpeg,png,gif'
+                    'data_nascimento'=>'date_format:"d/m/Y"',
+                    'avatar'=>'nullable|sometimes|image|mimes:jpg,jpeg,png,gif'
                 ];
             break;
 
-            case: "PUT":
+            case 'PUT':
                 return [
                     'saudacao' => 'required|max:5',
                     'nome'=>'required|max:100',
                     'telefone'=> 'required|max:15',
                     'email'=>'email|max:200|unique:contatos,email,'.$this->id,
-                    'data_nascimento'=>'date_format:"d/m/y"',
-                    'avatar'=>'nullable|sometimes|image|mimes:jpg, jpeg,png,gif'
+                    'data_nascimento'=>'date_format:"d/m/Y"',
+                    'avatar'=>'nullable|sometimes|image|mimes:jpg,jpeg,png,gif'
                 ];
                 break;
 
@@ -54,7 +53,6 @@ class ContatoRequest extends FormRequest
             'nome.required' => 'O campo nome é obrigatório',
             'email.email'=>'Informe um email válido',
             'data_nascimento.required'=>'O campo data deve ser no formato DD/MM/AAAA'
-            
-        ]
+        ];
     }
 }

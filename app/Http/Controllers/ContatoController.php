@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contato;
-class ContatoController extends Controller
-{
+use App\Http\Requests\ContatoRequest;
+class ContatoController extends Controller{
     /**
      * Display a listing of the resource.
      *
@@ -31,8 +31,8 @@ class ContatoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
-        $contato = Contato::create($request-->all());
+    public function store(ContatoRequest  $request){
+        $contato = Contato::create($request->all());
         return redirect('contatos');
     }
 
@@ -65,9 +65,9 @@ class ContatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)    {
+    public function update(ContatoRequest $request, $id)    {
         $contato = Contato::find($id);
-        $contato->fill($request->all);
+        $contato->fill($request->all());
         $contato->update();
         return redirect('contatos');
     }
@@ -78,8 +78,8 @@ class ContatoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id)    {
+        Contato::destroy($id);
+        return redirect('contatos');
     }
 }

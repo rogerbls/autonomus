@@ -60,8 +60,8 @@ function validate_delete() {
                                     <p class="form-control-static">{{ $data->data_nascimento }}</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nota">Nota</label>
-                                    <p class="form-control-static">{{ $data->nota }}</p>
+                                    <label for="observacao">Observação</label>
+                                    <p class="form-control-static">{{ $data->observacao }}</p>
                                 </div>
                             </div>
                         </div><!-- /.row -->

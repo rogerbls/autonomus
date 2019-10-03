@@ -49,8 +49,8 @@
                             <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file -->
                         </div>
                         <div class="form-group">
-                            <label for="nota">Nota</label>
-                            <textarea class="form-control" id="nota" name="nota" rows="5">{{ old('nota', $data->nota) }}</textarea>
+                            <label for="observacao">Observação</label>
+                            <textarea class="form-control" id="observacao" name="observacao" rows="5">{{ old('observacao', $data->observacao) }}</textarea>
                         </div>
                     </div>
                     <div class="card-footer text-right">
